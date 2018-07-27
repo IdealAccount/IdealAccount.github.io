@@ -1,0 +1,49 @@
+.skill
+	&-container
+		flex-wrap: wrap
+	&-box
+		max-width: calc(100% / 4 - 26px)
+		text-align: center
+		&:last-child
+			margin-right: 0
+	&-icon
+		margin: 0 auto
+		width: 81px
+		height: 81px
+		border-radius: 50%
+		background: #f5f6f8
+		display: flex
+		justify-content: center
+		align-items: center
+		margin-bottom: 18px
+	&-title
+		font: bold 1.125em "Open Sans"
+		color: #3a3f4b
+		text-transform: uppercase
+		letter-spacing: 1.35px
+		margin-bottom: 2.11em
+		position: relative
+		&:before
+			content: ''
+			position: absolute
+			display: block
+			width: 2.27em
+			height: 2px
+			background: #6a6a6a
+			left: 50%
+			bottom: -1.16em
+			transform: translate(-50%)
+	&-notice
+		font: 400 12px 'Open Sans'
+		line-height: 20px
+		letter-spacing: .9px
+		color: #999
+	@media only screen and (max-width: 994px)
+		&-box
+			max-width: calc(100% / 2 - 45px)
+			margin-bottom: 50px
+		&-title
+			font-size: 1em
+	@media only screen and (max-width: 480px)
+		&-box
+			max-width: 100%

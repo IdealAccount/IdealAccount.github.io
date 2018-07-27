@@ -1,0 +1,65 @@
+.section
+	&-services
+		padding: 4.562em 0 6.06em
+		background: #fff
+		h2 
+			margin-bottom: 3.11em
+	&-header:before
+		content: ''
+		display: block
+		position: absolute
+		width: 3.5em
+		height: .0952em
+		background: #00a5ff
+		left: 50%
+		bottom: -.69em
+		transform: translate(-50%,50%)
+	// section-portfolio
+	&-portfolio
+		padding: 2.875em 0 5em
+		background: #f5f6f8
+		text-align: center
+		h2 
+			margin-bottom: 2.28em
+	// section-clients
+	&-clients
+		padding: 4.18em 0 7.875em
+		h2 
+			margin-bottom: 2.95em
+		.flex
+			flex-wrap: wrap
+	// section-comments
+	&-comments
+		padding: 4.125em 0
+		background: #f5f6f8
+		h2 
+			margin-bottom: 2.19em
+	// section-contact
+	&-contact
+		padding: 5.25em 0 4.43em
+		background: #3b404c
+		color: #fff
+	@media only screen and (max-width: 1090px)
+		&-header
+			font-size: 2.5em
+	@media only screen and (max-width: 994px)
+		&-header
+			font-size: 2em
+	@media only screen and (max-width: 784px)
+		&-contact
+			.application-container
+				flex-direction: column
+	@media only screen and (max-width: 680px)
+		&-header
+			font-size: 1.6em
+			line-height: 1.4
+		&-contact 
+			.section-nav
+				padding: 10px 0
+				cursor: pointer
+				width: inherit
+				&__list-item
+					display: none
+			.menu-hidden
+				display: block
+			

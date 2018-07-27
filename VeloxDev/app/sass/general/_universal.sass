@@ -1,0 +1,196 @@
+html, body
+  overflow-x: hidden
+  font-size: 16px
+  line-height: 1.25em
+  @media only screen and (max-width: 1090px)
+    font-size: 14px
+  @media only screen and (max-width: 730px)
+    font-size: 13px
+h1,h2
+  text-align: center
+  font-family: 'Lora'
+  font-weight: 700
+h1
+  font-size: 3.625em
+  line-height: 1.344em
+  text-transform: capitalize
+  color: #fff
+  margin-bottom: 1em
+  @media only screen and (max-width: 994px)
+    font-size: 3.2em
+    margin-bottom: .5em
+  @media only screen and (max-width: 480px)
+    font-size: 2.5em
+h2
+  font-size: 2.625em
+  line-height: 2.75em
+  text-transform: uppercase
+  color: #3a3f4b
+  margin-bottom: .69em
+  position: relative
+.wrapper
+  max-width: 1400px
+  width: 100%
+  margin: 0 auto
+  box-shadow: 0 0 2px rgba(0,0,0,.2)
+.wrap
+  padding: 0 7.1875em
+  @media only screen and (max-width: 1090px)
+    padding: 0 4em
+  @media only screen and (max-width: 480px)
+    padding: 0 1.4em
+.flex
+  display: flex
+  justify-content: center
+  &-jsb
+    display: flex
+    justify-content: space-between
+    align-items: center
+  &-sb
+    display: flex
+    justify-content: space-between
+// BUTTON
+.waves-effect 
+  position: relative
+  cursor: pointer
+  display: inline-block
+  overflow: hidden
+  -webkit-user-select: none
+     -moz-user-select: none
+      -ms-user-select: none
+          user-select: none
+  -webkit-tap-highlight-color: transparent
+  vertical-align: middle
+  z-index: 1
+  -webkit-transition: .3s ease-out
+  transition: .3s ease-out
+
+.waves-effect .waves-ripple 
+  position: absolute
+  border-radius: 50%
+  width: 20px
+  height: 20px
+  margin-top: -10px
+  margin-left: -10px
+  opacity: 0
+  background: rgba(0, 0, 0, 0.2)
+  -webkit-transition: all 0.7s ease-out
+  transition: all 0.7s ease-out
+  -webkit-transition-property: opacity, -webkit-transform
+  transition-property: opacity, -webkit-transform
+  transition-property: transform, opacity
+  transition-property: transform, opacity, -webkit-transform
+  -webkit-transform: scale(0)
+          transform: scale(0)
+  pointer-events: none
+
+.waves-effect.waves-light .waves-ripple 
+  background-color: rgba(255, 255, 255, 0.45)
+.btn
+  &-style
+    transition: .3s
+    color: #fff
+    font: 1.5em "Open Sans"
+    background: #0084CC
+    border-radius: 1.5em
+    line-height: 1
+    margin: 0 auto
+    box-shadow: 0 .2em .2em .04em rgba(0, 0, 0, 0.25)
+    &:hover 
+      background: lighten(#0084CC,20%)
+  &-get
+    padding: .87em 2.12em 1em 2.95em
+    text-transform: capitalize
+  &-more
+    padding: .75em 2.66em
+    text-transform: uppercase
+  &-send
+    padding: .83em 2.29em
+  &-up
+    position: absolute
+    padding: 20px
+    font-size: 20px
+    top: 0
+    left: 50%
+    transform: translate(-50%,-50%)
+    box-shadow: none
+    i
+      color: #fff
+  @media only screen and (max-width: 480px)
+    &-style
+      font-size: 1.2em
+    &-up
+      border-radius: 2em
+
+
+ 
+
+.gamburger
+  position: relative
+  width: 40px
+  height: 1px
+  background: #fff
+  display: none
+  &:before,
+  &:after
+    content: ''
+    width: 40px
+    height: 1px
+    left: 0
+    background: #fff
+    position: absolute
+    transition: .5s linear
+  &:before
+    top: -10px
+  &:after
+    bottom: -10px
+  &-menu,
+    position: absolute
+    z-index: 999
+    width: 160px
+    transition: transform .8s
+    top: -100vh
+    transform: perspective(1000px) rotateX(100deg) skew(-10deg)
+    opacity: 0
+    transform-origin: 0% 0%
+    background: rgba(#507189,.8)
+    border-radius: 5px
+    overflow: hidden
+    &__item
+      text-align: left
+      padding: 20px
+      margin-bottom: 10px
+      font: 1.2em "Open Sans"
+      text-transform: uppercase
+      transition: .3s
+      white-space: nowrap
+      &:last-child
+        margin-bottom: 0
+      &:hover
+        padding-left: 30%
+        background: #507189
+  &.open
+    background: transparent
+    &:after
+      animation: open1 .5s
+      animation-fill-mode: forwards
+    .gamburger-menu
+      transform: perspective(1000px) rotateX(0deg)
+      top: 20px
+      right: -130%
+      opacity: 1
+    &:before
+      animation: open .5s
+      animation-fill-mode: forwards
+  @media only screen and (max-width: 680px)
+    display: block
+@keyframes open
+  50% 
+    transform: translateY(10px)
+  100%
+    transform: translateY(10px) rotate(45deg)
+@keyframes open1
+  50% 
+    transform: translateY(-10px)
+  100%
+    transform: translateY(-10px) rotate(-45deg)

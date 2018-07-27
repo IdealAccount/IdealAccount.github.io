@@ -1,0 +1,47 @@
+.header
+	background: url('../img/header-bg.png')no-repeat top
+	padding: 1.5em 0 9.37em
+	text-align: center
+	color: #fff
+	&-menu
+		margin-bottom: 13.625em
+.logo
+	font: 700 2.5em 'Open Sans'
+	letter-spacing: 2px
+	line-height: 1.1em
+	color: #fff
+	margin-right: 100px
+	white-space: nowrap
+	span
+		background: #3B404C
+		width: .9em
+.nav
+	max-width: 560px
+	width: 100%
+	&-menu
+		display: flex
+		justify-content: space-between
+		&__item
+			&:last-child
+				margin-right: 0
+		&__link
+			color: rgba(#fff,.69)
+			display: block
+			transition: .2s
+			font: 14px 'Open Sans'
+			&:hover
+				color: #fff
+	@media only screen and (max-width: 994px)
+		max-width: 400px
+	@media only screen and (max-width: 680px)
+		width: inherit
+		cursor: pointer
+		padding: 10px 0
+		&-menu
+			display: none
+.title
+	margin-bottom: 5.5em
+	&-text
+		font: 400 1.56em "Open Sans"
+		@media only screen and (max-width: 994px)
+			font-size: 1.36em
