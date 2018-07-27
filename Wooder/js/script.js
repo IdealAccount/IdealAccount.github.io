@@ -1,7 +1,13 @@
 let gamburger = document.getElementsByClassName('header-menu__gamburger')[0],
 		menu = document.getElementsByClassName('header-menu__gmenu-text')[0],
 		gmenu = document.getElementsByClassName('header-menu__gmenu-icon')[0],
-		slide_menu = document.getElementsByClassName('slide-menu')[0];
+		slide_menu = document.getElementsByClassName('slide-menu')[0],
+		header = document.querySelector('.header');
+
+// gamburger.addEventListener('click', function() {
+// 	header.classList.toggle('slide');
+	
+// });
 
 menu.addEventListener('click', function() {
 	gamburger.classList.toggle('open');
