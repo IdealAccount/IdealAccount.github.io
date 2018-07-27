@@ -1,0 +1,31 @@
+.footer
+	max-width: 1920px
+	width: 100%
+	padding: 102px 0 55px
+	background: #363d45
+	.container
+		display: flex
+		justify-content: space-between
+	&-specification
+		color: #8a9199
+		&__title
+			margin-bottom: 35px
+			color: $clrw
+			font-size: 19px
+			line-height: 24px
+			white-space: pre-line
+		&__patent
+			font-size: 12px
+			letter-spacing: -.7px
+	&-list
+		&:last-child
+			text-align: right
+		&__title
+			margin-bottom: 17px
+			@include typography($fwb, $fsh4, $lhh, $clrw)
+		&__item
+			margin-bottom: 12px
+		&__link
+			color: #8a9199
+.copyright
+	letter-spacing: -.6px

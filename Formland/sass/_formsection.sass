@@ -1,0 +1,387 @@
+.page-header
+	width: 100%
+	background: url(../img/bg-baby-clerk.png) no-repeat 78.6% -45%,url(../img/bg-tm.png)no-repeat 77.8% 80%, url(../img/c-bg.png) no-repeat 59.7% 53%, url(../img/reg-header-bg.png) no-repeat top / cover,  #4f535e 
+	padding-top: 125px
+	padding-bottom: 156px
+.page-title
+	color: #fff
+	margin-bottom: 32px
+.page-caption
+	color: #afbabe
+	line-height: $lhh
+	white-space: pre-line
+	font-size: 14px
+// FORM
+.application-form
+	padding: 14px 60px 0
+	&__title
+		margin-bottom: 19px
+	&__title:nth-child(1)
+		margin-bottom: 25px
+	&__index
+		margin-right: 10px
+		line-height: 35px
+	&__manual
+		white-space: pre-line
+		line-height: 24px
+		margin-bottom: 39px
+// MAIN FORM TABS 
+.form-tabs
+	margin-bottom: 77px
+	&__nav
+		margin-bottom: 58px
+		&-item
+			padding-top: 4px
+			display: inline-block
+			margin-right: 27px
+			position: relative
+			cursor: pointer
+			&:last-child
+				margin-right: 0
+			&.active:after
+				content: ''
+				width: 100%
+				height: 2px
+				background: #d52b1e
+				position: absolute
+				bottom: -24px
+				left: 0
+	&__container
+		display: none
+		&.active
+			display: block
+	&__content
+		margin-right: 36px
+
+.call-action
+	@include flex(flex, space-between, center)
+	margin-bottom: 50px
+.choice-classes
+	&__btn
+		padding: 19px 20px 17px 23px
+		margin-right: 15px
+		border-radius: 3px
+		transition: .2s
+		&:hover
+			background: #B22319
+.consultation
+	text-align: center
+	&__phone
+		display: block
+		font-size: 18px
+		line-height: 1
+		font-weight: bold
+	&__text
+		font-size: 11px
+		line-height: 15px
+		color: #666
+.switches
+	display: flex
+	position: relative
+	&:before,
+	&:after
+		content: ''
+		position: absolute
+		width: calc(100% + 120px)
+		height: 1px
+		background: #e8e8e8
+		left: -60px
+	&:after
+		bottom: 0
+	&-container
+		padding: 49px 0 41px
+		margin-right: 40px
+		&:last-child
+			padding-left: 36px
+			margin-right: 0
+			border-left: 1px solid #e8e8e8
+.switch-wrap
+	margin-bottom: 10px
+	&:last-child
+		margin-bottom: 0
+input[type=radio]
+	display: none
+	&:checked ~ .switch-label:after
+		opacity: 1
+.switch-label
+	vertical-align: top
+	position: relative
+	&:before
+		content: ''
+		display: inline-block
+		width: 22px
+		height: 22px
+		background: $bgr
+		border-radius: 50%
+		margin-right: 8px
+	&:after
+		content: ''
+		opacity: 0
+		transition: .2s
+		width: 12px
+		height: 12px
+		background: #fff
+		position: absolute
+		border-radius: 50%
+		top: 4px
+		left: 5px
+.calculation
+	@include flex(flex, space-between, center)
+	padding: 43px 49px 46px 60px
+	background: #f5f5f5
+	&-box
+		color: #000
+	&__title
+		margin-right: 38px
+		font-size: 16px
+		font-weight: 600
+		line-height: 26px
+	&__cost
+		font-size: 25px
+		font-weight: 600
+		line-height: 28px
+		&--total
+			color: #d52b1e
+	&-btn
+		border: none
+		padding: 19px 57px 18px 52px
+		border-radius: 3px
+		&-notice
+			white-space: pre-line
+			text-align: right
+			margin-right: 18px
+			vertical-align: middle
+			color: #666
+// TABLE
+.section-table
+	padding: 60px
+	border-top: 1px solid #e8e8e8
+	h2
+		margin-bottom: 35px
+.table-head
+	background: #D52B1E
+	th
+		text-align: left
+		padding: 10px
+		color: #fff
+		white-space: nowrap
+		&:last-child
+			padding: 29px 25px 27px 28px
+		&:nth-child(1)
+			padding-left: 30px
+		&:nth-child(2)
+			padding: 0 7px 6px 21px
+		&:nth-child(3)
+			padding: 0 20px 0 25px
+		&:nth-child(4)
+			padding: 25px
+.table-body
+	td
+		vertical-align: top
+		border: 1px solid #e8e8e8
+		border-top: 0
+		line-height: 20px
+		&:nth-child(1)
+			padding: 25px 31px 0 30px
+		&:nth-child(2)
+			padding: 25px 26px 0 21px
+			line-height: 20px
+			span
+				margin-bottom: 22px
+		&:nth-child(3)
+			padding: 25px 27px 0 25px
+			font-size: 12px
+			font-weight: bold
+			color: #000
+			text-align: center
+			span
+				font-size: 14px
+				margin-bottom: 23px
+				&:last-child
+					margin-bottom: 0
+		&:nth-child(4)
+			padding: 20px 13px 17px 27px
+			p
+				margin-bottom: 18px
+				&:last-child
+					margin-bottom: 0
+			span
+				color: #000
+				font-size: 14px
+				font-weight: 600
+				line-height: 25px
+// HOW WE WORKING?
+.procedure
+	background: url(../img/our-work-bg.png) no-repeat 50% 49%, #f5f5f5
+	padding: 54px 60px 47px
+	margin-bottom: 40px
+	&__title
+		margin-bottom: 10px
+	&__caption
+		color: #444
+		font-size: 14px
+		line-height: 28px
+		margin-bottom: 65px
+	&-list
+		display: flex
+		&__container
+			margin-right: 69px
+			white-space: nowrap
+			&:nth-child(even)
+				padding-top: 44px
+		&__item
+			color: #d52b1e
+			font-size: 40px
+			font-weight: 600
+			margin-bottom: 17px
+			border-radius: 50%
+			background: #f5f5f5
+		&__specification
+			font-size: 13px
+			color: #000
+			font-weight: bold
+			line-height: 20px
+			margin-bottom: 11px
+
+// ACCORDION
+.accordion
+	padding: 0 63px 52px 60px
+	&-list__item
+		margin-bottom: 11px
+		cursor: pointer
+		position: relative
+		&:after,
+		&:before
+			content: ''
+			position: absolute
+			width: 20px
+			height: 2px
+			background: #666
+			right: 20px
+			top: 26px
+			transform-origin: 89% 61%
+			transition: .3s linear
+		&:after
+			top: 37px
+		&.open
+			border: 1px solid #e8e8e8
+			margin-bottom: 10px
+			padding-bottom: 36px
+			&:after
+				transform: rotate(45deg)
+			&:before
+				transform: rotate(-45deg)
+			.accordion-content
+				transition: padding .3s
+				display: block
+				max-height: 100%
+				// padding: 33px 60px 20px 58px;
+				&:last-child
+					padding-top: 0
+			.accordion-toggle
+				background: #fff
+	&-toggle
+		padding: 18px 18px 19px 22px
+		background: #f5f5f5
+		&:last-child
+			margin-bottom: 0
+	&-content
+		padding: 33px 60px 20px 58px;
+		display: none
+		overflow: hidden
+		max-height: 0
+
+// REGISTRATION FORM
+.registation
+	padding: 145px 202px 151px
+	background: $bgr
+	text-align: center
+	div
+		position: relative
+	&__title
+		font-size: 17px
+		color: #fff
+		margin-bottom: 22px
+	&__input
+		width: 100%
+		padding: 26px 20px 24px 22px
+		border: 0
+		&-str
+			position: absolute
+			top: 50%
+			right: 5px
+			transform: translate(-50%,-50%)
+			font-size: 12px
+			color: #000
+// SIDEBAR
+.sidebar
+	padding-top: 38px
+
+.tab
+	&-menu
+		max-width: 282px
+		margin-bottom: 49px
+		letter-spacing: -.4px
+		&__chapter
+			&-caption
+				padding: 14px 19px
+				border-bottom: 1px solid #e8e8e8
+				position: relative
+				overflow: hidden
+				color: #000
+				letter-spacing: -.2px
+				font-weight: bold
+				cursor: pointer
+				&:after
+					content: ''
+					width: 8px
+					height: 8px
+					border: solid #89899d
+					border-width: 2px 2px 0 0
+					position: absolute
+					right: 22px
+					top: 19px
+					transition: .3s
+					transform: rotate(45deg)
+			&.open
+				.tab-menu__chapter-caption
+					position: relative
+					background: #b41819
+					color: #fff
+					font-weight: bold
+					font-size: 13px
+					letter-spacing: -.2px
+					&:after
+						border-color: #fff
+						transform: rotate(135deg)
+				.tab-submenu
+					padding: 16px 22px 21px
+					max-height: 100%
+					top: 0
+					background: #fbfbfb
+					transition: .3s
+					&__category
+						cursor: pointer
+						color: #645555
+						font-weight: bold
+						margin-bottom: 8px
+						&:last-child
+							margin-bottom: 0
+						&.open
+							color: #a41616
+	&-subparagraph
+		padding-top: 8px
+		&__item
+			padding-left: 20px
+			margin-bottom: 8px
+			&:last-child
+				margin-bottom: 0
+			a
+				color: #645555
+			&.open a
+				color: #a41616
+.tab-submenu
+	max-height: 0
+	overflow: hidden
+
+	

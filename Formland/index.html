@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=cyrillic" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+</head>
+<body>
+	<div class="wrapper">
+		<header class="page-header">
+			<div class="container">
+				<h2 class="page-title">Регистрация товарных знаков</h2>
+				<p class="page-caption">Капитализация бренда может измеряться миллионами, но он не стоит ничего без
+				  правовой защиты. Зарегистрируйте товарный знак с фирмой «Интеллектуальный
+				  капитал». Вы получите услугу оформления обозначения под ключ в Москве с
+				  гарантией положительного результата от профессионалов с опытом 10 лет.</p>
+			</div>
+		</header>
+		<div class="container flex">
+			<main class="main">
+				<form id="application-form" class="application-form" action="" method="POST">
+					<h4 class="application-form__title">
+						<span class="application-form__index circle-box">1</span>Выберите вид товарного знака
+					</h4>
+					<div id="tabs" class="form-tabs">
+						<ul class="form-tabs__nav">
+							<li rel="panel1" class="form-tabs__nav-item active">Словестный (название)</li>
+							<li rel="panel2" class="form-tabs__nav-item">Изобразительный</li>
+							<li rel="panel3" class="form-tabs__nav-item">Комбинированный</li>
+							<li rel="panel4" class="form-tabs__nav-item">Объемный</li>
+						</ul>
+
+
+						<div id="panel1" class="form-tabs__container active ">
+							<span class="form-tabs__content"><img src="img/FedEx.png" alt="FedEx"></span>
+							<span class="form-tabs__content"><img src="img/Gillete.png" alt="Gillete"></span>
+							<span class="form-tabs__content"><img src="img/Sony.png" alt="Sony"></span>
+						</div>
+						<div id="panel2" class="form-tabs__container">
+							<div class="form-tabs__content">
+								2
+							</div>
+						</div>
+						<div id="panel3" class="form-tabs__container">
+							<div class="form-tabs__content">
+								3
+							</div>
+						</div>
+						<div id="panel4" class="form-tabs__container">
+							<div class="form-tabs__content">
+								4
+							</div>
+						</div>
+					</div>
+					<h4 class="application-form__title">
+						<span class="application-form__index circle-box">2</span>Укажите количество классов МКТУ
+					</h4>
+					<p class="application-form__manual">Укажите число или выберите конкретные классы из перечня 
+						С полным перечнем классов можно ознакомиться на сайте Роспатента: www1.fips.ru 
+						При необходимости, наши специалисты помогут Вам классифицировать перечень
+					</p>
+					<!-- Выбор классов -->
+					<div class="call-action">
+						<div class="choice-classes">
+							<a class="choice-classes__btn color-style" href="#">Выбрать классы МКТУ</a>
+							<span class="choice-classes__quantity">Выбрано <span class="choice-classes__selected">5</span> классов</span>
+						</div>
+						<div class="consultation">
+							<a class="consultation__phone" href="tel:8 (900) 223-23-23">8 (900) 223-23-23</a>
+							<span class="consultation__text">Бесплатная консультация</span>
+						</div>
+					</div>
+					<!-- call-action End -->
+					<!-- switches-group -->
+					<div class="switches">
+						<div class="switches-container">
+							<h4 class="application-form__title">
+								<span class="application-form__index circle-box">3</span>
+								Нужна ли предварительная проверка?
+							</h4>
+							<p class="switch-wrap">
+								<input id="needlessly" type="radio" name="verification" value="no">
+								<label class="switch-label" for="needlessly">Нет, не нужна. Владею всей необходимой информацией.</label>
+							</p>
+							<p class="switch-wrap">
+								<input id="necessary" type="radio" name="verification" value="fullcheck">
+								<label class="switch-label" for="necessary">Да, нужна полная проверка знака за 5 дней.</label>
+							</p>
+							<p class="switch-wrap">
+								<input id="quickly" type="radio" name="verification" value="quickly-fullcheck" checked>
+								<label class="switch-label" for="quickly">Да, нужна ускоренная полная проверка знака за 1 день.</label>
+							</p>
+						</div>
+						<div class="switches-container">
+							<h4 class="application-form__title">
+								<span class="application-form__index circle-box">4</span>
+								Выберите срок регистрации
+							</h4>
+							<p class="switch-wrap">
+								<input id="standart" type="radio" name="reg-deadline" value="standart">
+								<label class="switch-label" for="standart">Стандартный — 8-10 мес.</label>
+							</p>
+							<p class="switch-wrap">
+								<input id="faster" type="radio" name="reg-deadline" value="faster" checked>
+								<label class="switch-label" for="faster">Ускоренный — 2 мес.</label>
+							</p>
+						</div>
+					</div>
+				</form>
+				<div class="calculation">
+						<div class="calculation-box">
+							<span class="calculation__title">Стоимость наших услуг<br>
+								<span class="calculation__cost">28 500 ₽</span>
+							</span>
+							<span class="calculation__title">Общая стоимость<br>
+								<span class="calculation__cost calculation__cost--total">51 600 ₽</span>
+							</span>
+						</div>
+						<div class="calculation-box">
+							<span class="calculation-btn-notice">Позвоните нам или оставьте
+							 заявку на сайте.</span>
+							<button for="application-form" class="calculation-btn color-style" href="#">Оставить заявку</button>
+						</div>
+				</div>
+				<section class="section-table">
+					<h2>Государственная регистрация товарного знака</h2>
+					<!-- TABLE -->
+					<table class="table">
+						<thead class="table-head">
+							<tr>
+								<th>Наименование</th>
+								<th>Срок исполнения</th>
+								<th>Стоимость услуг</th>
+								<th>Госпошлина и/или тариф<br>
+										ФИПС (+ за каждый<br>
+										класс свыше одного)<br>
+								</th>
+							</tr>
+						</thead>
+						<tbody class="table-body">
+							<tr>
+								<td>Оформление, подача заявки в Патентное ведомство. Ведение стандартного делопроизводства в патентном ведомстве, получение приоритетной справки. Регистрация товарного знака в государственном реестре и получение свидетельства.</td>
+								<td><span>Оформление и подача в течение 3-х рабочих дней</span>
+									Регистрация 12-18 мес. 
+									(сроки Патентного ведомства)</td>
+								<td><span>18 000 ₽</span><br>
+										<span>+ 1 000 ₽</span>
+									(за каждый класс свыше 1)
+								</td>
+								<td>
+									<p><span>2 700 ₽</span><br>
+									за регистрацию заявки на регистрацию товарного знака и принятие решения по результатам формальной экспертизы</p>
+									<p><span>11 500 ₽</span> + <span>2 050 ₽</span><br>
+									(за каждый класс МКТУ свыше 1) - пошлина за проведение экспертизы обозначения, заявленного в качестве товарного знака и принятие решения по ее результатам</p>
+									<p><span>16 200 ₽</span><br>
+									пошлина за регистрацию товарного знака и выдачу свидетельства</p>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<!-- TABLE END -->
+				</section>
+
+				<section class="our-methods">
+					<div class="procedure">
+						<h2 class="procedure__title">Как мы работаем?</h2>
+						<p class="procedure__caption">Работа над проектом происходит по следующим этапам</p>
+						<div class="procedure-list">
+							<div class="procedure-list__container">
+								<span class="procedure-list__item">01</span>
+								<p class="procedure-list__specification">Подготовка и подача в<br>Роспатент</p>
+								<span class="procedure-list__terms">3 дня</span>
+							</div>
+							<div class="procedure-list__container">
+								<span class="procedure-list__item">02</span>
+								<p class="procedure-list__specification">Формальная экспертиза</p>
+								<span class="procedure-list__terms">2 месяца</span>
+							</div>
+							<div class="procedure-list__container">
+								<span class="procedure-list__item">03</span>
+								<p class="procedure-list__specification">Экспертиза по существу</p>
+								<span class="procedure-list__terms">8-10 месяцев</span>
+							</div>
+							<div class="procedure-list__container">
+								<span class="procedure-list__item">04</span>
+								<p class="procedure-list__specification">Внесение информации о<br>
+									регистрации в единый<br>
+									реестр.Выдача свидетельства</p>
+								<span class="procedure-list__terms">1,5 месяцев</span>
+							</div>
+						</div>
+					</div>
+
+
+					<!-- ACCORDION -->
+					<div class="accordion">
+						<ul class="accordion-list">
+							<li class="accordion-list__item">
+								<h3 class="accordion-toggle">Этапы регистрации торгового знака</h3>
+								<p class="accordion-content">По завершении описанной выше процедуры компания получает исключительные права на торговую марку на 10 лет. Отсчет этого срока начинается с момента подачи заявки о регистрации. Ограниченность времени эксклюзивного использования бренда вовсе не означает, что вы потеряете на него права по истечении десятилетия. Вы всегда можете продлить срок действия исключительных прав еще на десять лет. Для этого не нужно заново регистрировать товарный знак. Достаточно подать заявление о продлении за 1 год до завершения действия ранее выданного свидетельства. После его рассмотрения соответствующая информация вносится в реестр.</p>
+								<p class="accordion-content">Если вы не успели продлить права в указанный срок, можно обратиться в Росреестр с соответствующим ходатайством. В этом случае заявителю предоставляются дополнительные 6 месяцев.</p>
+							</li>
+							<li class="accordion-list__item ">
+								<h3 class="accordion-toggle">Как долго действует регистрация?</h3>
+								<p class="accordion-content">По завершении описанной выше процедуры компания получает исключительные права на торговую марку на 10 лет. Отсчет этого срока начинается с момента подачи заявки о регистрации. Ограниченность времени эксклюзивного использования бренда вовсе не означает, что вы потеряете на него права по истечении десятилетия. Вы всегда можете продлить срок действия исключительных прав еще на десять лет. Для этого не нужно заново регистрировать товарный знак. Достаточно подать заявление о продлении за 1 год до завершения действия ранее выданного свидетельства. После его рассмотрения соответствующая информация вносится в реестр.</p>
+								<p class="accordion-content">Если вы не успели продлить права в указанный срок, можно обратиться в Росреестр с соответствующим ходатайством. В этом случае заявителю предоставляются дополнительные 6 месяцев.</p>
+							</li>
+							<li class="accordion-list__item">
+								<h3 class="accordion-toggle">Стоимость и сроки регистрации, Что можно зарегистрировать?</h3>
+								<p class="accordion-content">По завершении описанной выше процедуры компания получает исключительные права на торговую марку на 10 лет. Отсчет этого срока начинается с момента подачи заявки о регистрации. Ограниченность времени эксклюзивного использования бренда вовсе не означает, что вы потеряете на него права по истечении десятилетия. Вы всегда можете продлить срок действия исключительных прав еще на десять лет. Для этого не нужно заново регистрировать товарный знак. Достаточно подать заявление о продлении за 1 год до завершения действия ранее выданного свидетельства. После его рассмотрения соответствующая информация вносится в реестр.</p>
+								<p class="accordion-content">Если вы не успели продлить права в указанный срок, можно обратиться в Росреестр с соответствующим ходатайством. В этом случае заявителю предоставляются дополнительные 6 месяцев.</p>
+							</li>
+							<li class="accordion-list__item">
+								<h3 class="accordion-toggle">Что входит в услуги регистрации?</h3>
+								<p class="accordion-content">По завершении описанной выше процедуры компания получает исключительные права на торговую марку на 10 лет. Отсчет этого срока начинается с момента подачи заявки о регистрации. Ограниченность времени эксклюзивного использования бренда вовсе не означает, что вы потеряете на него права по истечении десятилетия. Вы всегда можете продлить срок действия исключительных прав еще на десять лет. Для этого не нужно заново регистрировать товарный знак. Достаточно подать заявление о продлении за 1 год до завершения действия ранее выданного свидетельства. После его рассмотрения соответствующая информация вносится в реестр.</p>
+								<p class="accordion-content">Если вы не успели продлить права в указанный срок, можно обратиться в Росреестр с соответствующим ходатайством. В этом случае заявителю предоставляются дополнительные 6 месяцев.</p>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<form action="" method="POST" class="registation">
+					<h3 class="registation__title">Готовы зарегистрировать товарный знак?</h3>
+					<div>
+						<input class="registation__input" type="text" placeholder="Как вас зовут?">
+						<span class="registation__input-str">1 — 4</span>
+					</div>
+				</form>
+				<!-- PAGE NAV -->
+				<div class="page-navigation">
+					<a class="btn-prev" href="//localhost:3000/">
+						Назад к списку
+					</a>
+					<a class="download-link" href="" download=""><img class="download-img" src="img/PDF.png" alt="pdf-document">Скачать в PDF</a>
+					<a class="color-style btn-next" href="//localhost:3000/capitalarticle.html">
+						Наши услуги
+					</a>
+				</div>
+			</main>
+			<aside class="sidebar">
+					<ul class="tab-menu">
+						<li class="tab-menu__chapter"><p class="tab-menu__chapter-caption">Регистрация и оформление</p>
+							<ul class="tab-submenu open">
+								<li class="tab-submenu__category open">Товарный знак
+									<ul class="tab-subparagraph">
+										<li class="tab-subparagraph__item open"><a href="#">Регистрация товарных знаков</a></li>
+										<li class="tab-subparagraph__item"><a href="#">Регистрация логотипа</a></li>
+									</ul>
+								</li>
+								<li class="tab-submenu__category">Патентование</li>
+								<li class="tab-submenu__category">Авторские и смежные права</li>
+								<li class="tab-submenu__category">Регистрация перехода права</li>
+							</ul>
+						</li>
+						<li class="tab-menu__chapter">
+							<p class="tab-menu__chapter-caption">IT, Интернет, Стартапы</p>
+						</li>
+						<li class="tab-menu__chapter"><p class="tab-menu__chapter-caption">Судьи и споры</p>
+						</li>
+					</ul>
+					<!-- FORM -->
+					<form class="contact-form" action="" method="POST">
+						<h3>Свяжитесь с нами</h3>
+						<div class="form-group">
+							<div class="form-group__item">
+								<input class="contact-input" type="text" placeholder="Ваше имя" required>
+							</div>
+							<div class="form-group__item">
+								<input class="contact-input" type="phone" placeholder="Телефон" required>
+							</div>
+							<div class="form-group__item">
+								<input class="contact-input" type="email" placeholder="E-Mail" required>
+							</div>
+							<div class="agreement-wrap">
+								<input class="agreement-checkbox" type="checkbox" id="agreement">
+				     		<label class="agreement-label" for="agreement">Я 	согласен на обработку<br>
+				     			<a class="agreement-link" href="#">персональных данных</a>
+				     		</label>
+				     	</div>
+				     	 <input class="contactform-btn" type="submit" value="Отправить">
+				    </div>
+					</form>
+			</aside>
+		</div>
+		
+	</div>
+
+
+	<!-- FOOTER --> 
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-specification">
+				<span class="footer-specification__patent">Патентно-правовое бюро</span>
+				<h3 class="footer-specification__title">Интеллектуальный 
+				капитал</h3>
+				<span class="copyright">2018 Все права защищены.</span>
+			</div>
+			<ul class="footer-list">
+				<li class="footer-list__title">Компания</li>
+				<li class="footer-list__item"><a class="footer-list__link" href="#">Команда</a></li>
+				<li class="footer-list__item"><a class="footer-list__link" href="#">Проекты</a></li>
+			</ul>
+			<ul class="footer-list">
+				<li class="footer-list__title">Услуги</li>
+				<li class="footer-list__item"><a class="footer-list__link" href="#">Регистрация и оформление</a></li>
+				<li class="footer-list__item"><a class="footer-list__link" href="#">IT,Интернет,Стартапы</a></li>
+				<li class="footer-list__item"><a class="footer-list__link" href="#">Суды и споры</a></li>
+			</ul>
+			<ul class="footer-list">
+				<li class="footer-list__title">Информация</li>
+				<li class="footer-list__item"><a class="footer-list__link" href="#">Новости</a></li>
+				<li class="footer-list__item"><a class="footer-list__link" href="#">Статьи</a></li>
+				<li class="footer-list__item"><a class="footer-list__link" href="#">Вопрос-ответ</a></li>
+			</ul>
+			<ul class="footer-list">
+				<li class="footer-list__title">Контакты</li>
+				<li class="footer-list__item"><a class="footer-list__link" href="#">+7(495) 248 04 90</a></li>
+				<li class="footer-list__item"><a class="footer-list__link" href="mailto:info@copyrightlaw.ru">info@copyrightlaw.ru</a></li>
+				<li class="footer-list__item"><a class="footer-list__link" href="#">Мы на карте</a></li>
+			</ul>
+		</div>
+	</footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/main-accordion.js"></script>
+</body>
+
+</html>
