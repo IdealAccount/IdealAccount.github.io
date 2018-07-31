@@ -174,9 +174,15 @@ body {
   color: #f8f8f8;
 }
 
+.header__change-lang {
+  align-self: center;
+}
+
 .header__change-lang li {
   position: relative;
   color: #fff;
+  text-transform: uppercase;
+  font-size: 0.75em;
 }
 
 .header__change-lang li:after {
@@ -570,6 +576,27 @@ body {
 
 .product {
   margin-bottom: 112px;
+  position: relative;
+}
+
+.product:before, .product:after {
+  position: absolute;
+  top: 12px;
+  color: #333;
+  font-size: 1.25em;
+  font-family: 'FontAwesome';
+  cursor: pointer;
+  padding: 5px;
+}
+
+.product:before {
+  content: '\f104';
+  right: 52px;
+}
+
+.product:after {
+  content: '\f105';
+  right: 27px;
 }
 
 .product:last-child {
@@ -659,7 +686,15 @@ body {
 }
 
 .product-cart__cost {
+  display: flex;
+  flex-direction: column;
   font-size: 1.125em;
+}
+
+.product-cart__cost--sale {
+  font-size: 0.77778em;
+  text-decoration: line-through;
+  color: rgba(254, 0, 0, 0.6);
 }
 
 .gallery {
