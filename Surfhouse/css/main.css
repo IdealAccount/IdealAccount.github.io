@@ -121,7 +121,10 @@ body {
 }
 
 .wrap {
-  padding: 0 365px;
+  padding: 0 40px;
+  max-width: 1250px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .flex-sb, .flex-sbc {
