@@ -1092,7 +1092,7 @@ h1 {
   -ms-flex-direction: column;
       flex-direction: column;
   width: 340px;
-  height: 326px;
+  min-height: 326px;
   background: #FAFAFA;
   font-size: 14px;
   padding: 40px 35px 26px;
