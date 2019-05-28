@@ -12,12 +12,15 @@ let btn = document.querySelector('#generator');
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
 	arr2 = ['a', 'b', 'c', 'd', 'e', 'f', 'g'],
 	arr3 = ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
-	arr4 = ['!', '@', '#', '&', '$'];
+	arr4 = ['!', '@', '#', '&', '$', '*', '/', '-', '_', ')', '^', '%', '№', '>', '<'];
 
 
 range.oninput = function () {
 	passLengths.innerHTML = this.value;
 }
+
+generate();
+
 btn.onclick = generate;
 
 
@@ -34,7 +37,6 @@ function compareRandom(a, b) {
 // функция генерации пароля
 function generate() {
 	let result = [];
-	let pass = '';
 	let rand;
 
 	// включены ли цифры
@@ -57,17 +59,22 @@ function generate() {
 	// сортируем массив в разнобой
 	result.sort(compareRandom);
 
-
-
 	// генерируем код длиной равный значению ползунка
 	// каждую итерацию rand равен рандомному числу в диапозоне от 0 до значения длины переданного в функцию массива
 	// в переменной pass формируется строка из массива, где rand(рандомное число этого же массива) используется как индекс
-	for (let i = 0; i < range.value; i++) {
-		rand = random(result);
-		pass += result[rand];
+	out.innerHTML = '';
+
+	for (let k = 0; k < 6; k++) {
+		let pass = '';
+		for (let i = 0; i < range.value; i++) {
+			rand = random(result);
+			pass += result[rand];
+		}
+		out.innerHTML += '<p>' + pass + '</p>';
+
 	}
+
 	//	вывод генерированного пароля
-	out.innerHTML = pass;
-	return pass;
+	//	return pass;
 
 }
