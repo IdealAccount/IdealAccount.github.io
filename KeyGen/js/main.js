@@ -9,10 +9,6 @@ let range = document.querySelector('#param-1'),
 let btn = document.querySelector('#generator');
 
 
-//let checkbox = document.querySelectorAll('input[type="checkbox"]');
-let inputs = document.querySelectorAll('input');
-
-
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
 	arr2 = ['a', 'b', 'c', 'd', 'e', 'f', 'g'],
 	arr3 = ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
@@ -24,38 +20,54 @@ range.oninput = function () {
 }
 btn.onclick = generate;
 
+
+// генерируем рандомное число относительно длины массива.
 function random(arr) {
 	return Math.floor(Math.random() * arr.length);
 }
 
+// область значений от -0.5 до 0.5
 function compareRandom(a, b) {
 	return Math.random() - 0.5;
 }
 
+// функция генерации пароля
 function generate() {
 	let result = [];
 	let pass = '';
+	let rand;
 
+	// включены ли цифры
 	if (numbs.checked) {
 		result = result.concat(arr);
 	}
+	//	включены ли строчные
 	if (str.checked) {
 		result = result.concat(arr2);
 	}
+	//	включены ли прописные
 	if (letters.checked) {
 		result = result.concat(arr3);
 	}
+	//	включены ли символы
 	if (char.checked) {
 		result = result.concat(arr4);
 	}
 
+	// сортируем массив в разнобой
 	result.sort(compareRandom);
 
 
+
+	// генерируем код длиной равный значению ползунка
+	// каждую итерацию rand равен рандомному числу в диапозоне от 0 до значения длины переданного в функцию массива
+	// в переменной pass формируется строка из массива, где rand(рандомное число этого же массива) используется как индекс
 	for (let i = 0; i < range.value; i++) {
-		pass += result[random(result)];
-		out.innerHTML = pass;
-		//		out.innerHTML = result[random(result)];
+		rand = random(result);
+		pass += result[rand];
 	}
-	return result;
+	//	вывод генерированного пароля
+	out.innerHTML = pass;
+	return pass;
+
 }
