@@ -12,7 +12,7 @@ let btn = document.querySelector('#generator');
 let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
 	arr2 = ['a', 'b', 'c', 'd', 'e', 'f', 'g'],
 	arr3 = ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
-	arr4 = ['!', '@', '#', '&', '$', '*', '/', '-', '_', ')', '^', '%', '№', '>', '<'];
+	arr4 = ['!', '@', '#', '&', '$', '*', '/', '-', '_', ')', '^', '%', '№'];
 
 
 range.oninput = function () {
@@ -64,7 +64,7 @@ function generate() {
 	// в переменной pass формируется строка из массива, где rand(рандомное число этого же массива) используется как индекс
 	out.innerHTML = '';
 
-	for (let k = 0; k < 6; k++) {
+	for (let j = 0; j < 6; j++) {
 		let pass = '';
 		for (let i = 0; i < range.value; i++) {
 			rand = random(result);
