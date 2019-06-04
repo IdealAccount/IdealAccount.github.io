@@ -1,24 +1,22 @@
 const sliderView = document.querySelector('#slider-viewport');
-const sliderImgList = sliderView.querySelectorAll('li img');
-
+const sliderItemList = [...sliderView.querySelectorAll('li')];
+const sliderImgList = [...sliderView.querySelectorAll('li img')];
+const nav = document.querySelector('.navigation-list');
 
 let btnPrev = document.querySelector('.btn-prev');
 let btnNext = document.querySelector('.btn-next');
 
 
+
+//click();
+
+
 // отключаем стандартное поведение для всех картинок слайдера 
 //при выделении и захвате мышью
-let imgOff = function () {
-	let sliderContainer = document.querySelector('.container');
-	let sliderImg = sliderContainer.querySelectorAll('img');
-
-	for (let i = 0; i < sliderImg.length; i++) {
-		sliderImg[i].onmousedown = function () {
-			return false;
-		}
-	}
-}
-
+function imgOff() {
+	let sliderImg = [...document.querySelectorAll('.container img')];
+	sliderImg.forEach(item => item.onmousedown = () => false)
+};
 // создать элемент в навигации меню с картинкой 
 //	соответствующей изображению слайдера
 function createNavItem(tag, src) {
@@ -26,6 +24,7 @@ function createNavItem(tag, src) {
 	const navElementImg = document.createElement('img');
 
 	navElementLi.setAttribute('data-id', src);
+
 	navElementLi.className = 'navigation-item';
 
 	navElementImg.src = src;
@@ -35,77 +34,139 @@ function createNavItem(tag, src) {
 	return navElementLi;
 };
 
-const navList = document.querySelector('.navigation-list');
 
 // генерация элементов навигации слайдера
 function generateNavList() {
-
-	// получаем коллекцию изображений слайдера
-
 	// перебор всех изображений слайдера
 	// получаем src каждой картинки
 	// создаем элемент навигационного меню слайдера
-	for (let i = 0; i < sliderImgList.length; i++) {
-		let sliderImgSrc = sliderImgList[i].src;
-		const createListItem = createNavItem('li', sliderImgSrc);
-
-		navList.appendChild(createListItem);
-	}
+	sliderImgList.forEach(img => {
+		const createListItem = createNavItem('li', img.src);
+		nav.appendChild(createListItem);
+	})
+	// отключаем действия по умолчанию для картинок слайдера
 	imgOff();
+
 };
 generateNavList();
+const navItemList = nav.querySelectorAll('.navigation-item');
 
-// 
+let current = 0;
+
+function slide(num) {
+	let offset = navItemList[0].offsetWidth;
+
+	let target = event.target;
+	let isDisabled = true;
+	console.log(offset);
+
+	// получение и изменение ширины при изменении размера окна браузера
+	window.onresize = () => offset;
+
+	if (num) {
+		if (current === -1216) target.disabled = isDisabled;
+		current -= offset;
+		nav.style.transform = 'translateX(' + current + 'px)';
+
+		btnPrev.disabled = !isDisabled;
+	} else {
+		if (current >= 0) target.disabled = isDisabled;
+		current += offset;
+		nav.style.transform = 'translateX(' + current + 'px)';
+
+
+		btnNext.disabled = !isDisabled;
+	}
+}
+
+//const sliderView = document.querySelector('#slider-viewport');
+//const sliderItemList = [...sliderView.querySelectorAll('li')];
+//const sliderImgList = [...sliderView.querySelectorAll('li img')];
+//const nav = document.querySelector('.navigation-list');
+//const navItemList = nav.querySelectorAll('.navigation-item');
+//
+//
+//let btnPrev = document.querySelector('.btn-prev');
+//let btnNext = document.querySelector('.btn-next');
+
+
+//let current = 0;
+//
+//function slide(num) {
+//	let offset = navItemList[0].offsetWidth;
+//
+//	let target = event.target;
+//	let isDisabled = true;
+//	console.log(offset);
+//
+//	// получение и изменение ширины при изменении размера окна браузера
+//	window.onresize = () => offset;
+//
+//	if (num) {
+//		if (current === -1216) target.disabled = isDisabled;
+//		current -= offset;
+//		nav.style.transform = 'translateX(' + current + 'px)';
+//
+//		btnPrev.disabled = !isDisabled;
+//	} else {
+//		if (current >= 0) target.disabled = isDisabled;
+//		current += offset;
+//		nav.style.transform = 'translateX(' + current + 'px)';
+//
+//
+//		btnNext.disabled = !isDisabled;
+//	}
+//}
+
+
+
+
+
 function bindNavWithSlider() {
-	const sliderItem = sliderView.querySelectorAll('li');
-	const navListLi = navList.querySelectorAll('li');
-	//	const navImg = navList.querySelectorAll('li img');
-
-	for (let li of navListLi) {
-		li.classList.remove('active');
+	for (let navItem of navItemList) {
+		navItem.classList.remove('active');
 	}
 	this.classList.add('active');
 
 	// перебор каждого элемента слайдера и навигационного бара
 	// проверка совпадений по атрибуту data-id и src картинки в основном слайдере
 	// применение стилей
-	for (let i = 0; i < navListLi.length; i++) {
-		if (this.dataset.id == sliderImgList[i].src) {
-			sliderItem[i].style.display = 'block';
-			setTimeout(function () {
-				sliderItem[i].style.opacity = 1;
-			}, 400)
+	sliderItemList.forEach((sliderItem, i) => {
+		let imgSrc = sliderImgList[i].src;
+		if (this.dataset.id === imgSrc) {
+			setTimeout(() => sliderItem.style.opacity = 1, 200)
+			sliderItem.style.display = 'block';
+
 		} else {
-			sliderItem[i].style.opacity = 0;
-			setTimeout(function () {
-				sliderItem[i].style.display = 'none';
-
-			}, 400)
-
+			sliderItem.style.opacity = 0;
+			setTimeout(() => sliderItem.style.display = 'none', 400)
 		}
-	}
-
+	})
 };
 
 // TODO: отменить событие если есть класс active;
 
 function click() {
-	const li = navList.querySelectorAll('li');
-
-	for (let item of li) {
-		if (item.classList.contains('active')) {
-			item.removeEventListener('click', bindNavWithSlider);
-		} else {
-			item.addEventListener('click', bindNavWithSlider);
-		}
+	for (let item of navItemList) {
+		item.classList.remove('active');
+		this.classList.add('active');
 	}
+	sliderItemList.forEach((sliderItem, i) => {
+		let imgSrc = sliderImgList[i].src;
+		if (this.dataset.id === imgSrc) {
+			setTimeout(() => sliderItem.style.opacity = 1, 200)
+			sliderItem.style.display = 'block';
 
+		} else {
+			sliderItem.style.opacity = 0;
+			setTimeout(() => sliderItem.style.display = 'none', 400)
+		}
+	})
 };
-click();
 
-btnPrev.onclick = prev;
-
-function prev(e) {
-	e.preventDefault();
-
-}
+function add() {
+	for (let navItem of navItemList) {
+		navItem.addEventListener('click', click);
+	}
+};
+add();
