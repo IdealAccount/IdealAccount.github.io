@@ -11,12 +11,23 @@ body {
 	max-width: 800px;
 	width: 100%;
 	margin: 0 auto;
+	padding: 10px;
+	background: rgb(149, 200, 204);
+}
+
+#box {
+	display: flex;
+	padding: 30px;
+	background: rgba(77, 74, 116, 0.41);
+	min-height: 260px;
+	box-shadow: inset 2px -4px 15px 3px rgba(41, 123, 98, 0.88);
 }
 
 ul {
+	width: 100%;
 	display: flex;
-	flex-shrink: 1;
-	flex-grow: 0;
+	justify-content: center;
+	flex-grow: 1;
 	margin: 0 auto;
 	padding: 0;
 	list-style: none;
@@ -24,14 +35,16 @@ ul {
 }
 
 li {
+	position: relative;
+	display: flex;
+	width: 30px;
 	font-family: Helvetica;
 	font-size: 14px;
-	display: flex;
 	margin-right: 2px;
 	align-items: flex-end;
 	justify-content: center;
-	padding: 0 7px;
-	background: #14cfc3;
+	padding: 0 8px 5px;
+	background: #00d028;
 	/*	background: linear-gradient(to top, #333 20%,  73%);*/
 	color: #fff;
 	font-weight: bold;
@@ -54,12 +67,16 @@ li {
 
 #counter {
 	display: inline-block;
+	font-family: sans-serif;
 	text-align: center;
 	padding: 10px;
 	min-width: 40px;
-	background: rgba(34, 69, 186, 0.95);
+	background: rgba(255, 255, 255, 0.71);
+	box-shadow: inset 0 0 12px rgba(0, 0, 0, .3),
+		0 0 5px rgba(0, 0, 0, .2);
 	border-radius: 50%;
 	font-weight: bold;
+	color: rgba(50, 50, 50, .3);
 }
 
 .btn-group {
