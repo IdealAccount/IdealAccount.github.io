@@ -2,6 +2,7 @@ const container = document.querySelector('#container');
 const btns = document.querySelector('.btn-group');
 const menu = document.querySelector('#menu');
 const range = document.querySelector('#range');
+
 let unsorted = [];
 
 // Создать элемент с присвоенными атрибутами
@@ -29,17 +30,26 @@ range.oninput = function () {
 	} else if (count > 14) counter.style.color = 'rgb(94, 211, 148)';
 	else counter.style.color = 'rgba(50,50,50,.3)';
 }
-
+function compare(a,b) {
+	return a - b;
+};
 // Сгенерировать массив случайных чисел заданной длиной в input
 function generateArray() {
-	let array = [];
+	let generateArray = [];
+	let random = Math.floor(Math.random() * range.value);
 	for (let i = 0; i < range.value; i++) {
-		array.push(Math.floor(Math.random() * range.value) + 1)
+		generateArray.push(Math.floor(Math.random() * range.value))
 	}
-	unsorted = array;
+	generateArray.sort(compareRandom)
+	unsorted = generateArray;
+	
 	return unsorted;
 };
 
+// область значений от -0.5 до 0.5
+function compareRandom(a, b) {
+	return Math.random() - 0.5;
+}
 
 // Создание элемента на основе длинны массива
 const createGraph = () => {
@@ -49,7 +59,7 @@ const createGraph = () => {
 	
 	unsorted.forEach((num, i) => {
 		let graphItem = createElement('li', {
-			'data-id': i
+			'data-value': num
 		});
 
 		graphItem.textContent = num;
@@ -67,32 +77,39 @@ const renderGraph = () => {
 	box.firstElementChild ? box.replaceChild(createGraph(), box.firstElementChild) : box.appendChild(createGraph());
 };
 
-
 function swap(current, next) {
-//	[current.style.height, next.style.height] = [next.offsetHeight, current.offsetHeight]
-	let offset = current.offsetWidth;
-	current.style.transform = `translateX(${offset}px)`;
-	next.style.transform = `translateX(${offset}px)`;
+	let count = 32;
+	current.classList.add('swapped');
+	current.style.transform = `translateX(${count}px)`;
+	next.style.transform = `translateX(-32px)`;
+	[current, next] = [next, current];
 };
+
 
 function graphSort() {
 	let graph = [...document.querySelector('#graph').children];
+	let swapped;
+	let endI = graph.length - 1;
 	
-	for (let i = 0, endI = graph.length - 1;  i < endI; i++) {
-		let swapped = false;
-		for (let j = 0, endJ = endI - i; j < endJ; j++ ) {
-			let currHeight, nextHeight;
-			currHeight = graph[j].offsetHeight;
-			nextHeight = graph[j + 1].offsetHeight;
-			if (currHeight > nextHeight) {
-				swap(graph[j], graph[j+1]);
-				swapped = true;
-			}
-		}
-		if (!swapped) break;
-	}
-};
+	let bubbleSort = () => {
+		swapped = false;
+		for (let i = 0, j = 1;i < endI; i++, j++ ) {
+			let current = graph[i];
+			let next = graph[j];
+			let currVal = +current.dataset.value;
+			let nextVal = +next.dataset.value;
 
+			if (currVal > nextVal)  {
+				swapped = true;
+				swap(current, next);
+			} 
+			endI--;
+		}
+	};
+		do {
+			bubbleSort();
+		} while(swapped);
+};
 // Сортировка массива.
 //const bubbleSort = arr => {
 //	let endI = arr.length - 1;
@@ -117,9 +134,8 @@ btns.addEventListener('click', (e) => {
 	
 	let target = e.target;
 	if (target == btnSort) {
-		bubbleSort(unsorted);
+//		bubbleSort(unsorted);
 		graphSort();
-		console.log(unsorted);
 	}
 	if (target == btnGenerate) {
 		generateArray();
@@ -127,3 +143,46 @@ btns.addEventListener('click', (e) => {
 	}
 });
 
+///
+let fade = {
+	fade_in_from: 0,
+	fade_out_from: 10
+}
+
+function hide(elem) {
+	let target = elem;
+	let newSetting = fade.fade_out_from / 10;
+	target.style.opacity = newSetting;
+	fade.fade_out_from--;
+
+	if (fade.fade_out_from == 0) {
+		target.style.opacity = 0;
+		target.style.display = 'none';
+
+		clearTimeout(loopTimer);
+
+		fade.fade_out_from = 10;
+		return false;
+	}
+	console.log(target.style);
+	let loopTimer = setTimeout(hide(target), 50);
+};
+
+function show(elem) {
+	let target = elem;
+
+	target.style.display = 'block';
+	let newSettings = fade.fade_in_from / 10;
+	target.style.opacity = newSettings;
+	fade.fade_in_from++;
+
+	if (fade.fade_in_from == 10) {
+		target.style.opacity = 1;
+
+		clearTimeout(loopTimer);
+
+		fade.fade_in_from = 0;
+		return false;
+	}
+	let loopTimer = setTimeout(show(target), 50);
+};
