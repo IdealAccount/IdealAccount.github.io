@@ -114,15 +114,33 @@ function graphSort() {
 
 			if (currVal > nextVal) {
 				swapped = true;
-				setTimeout(() => swap(current, next), 0);
+				current.classList.add('swapped');
+				next.classList.add('swapped');
+				//				swap(current, next)
+				sw(current, next);
+				current.classList.remove('swapped');
+				next.classList.remove('swapped');
 			}
-			endI--;
+			//			endI--;
 		}
 	};
 	do {
 		bubbleSort();
 	} while (swapped);
 };
+
+function sw(left, right) {
+	let leftClone, rightClone, parent;
+	parent = left.parentElement;
+	leftClone = left.cloneNode(true);
+	rightClone = right.cloneNode(true);
+	rightClone.classList.remove('swapped');
+
+
+	parent.replaceChild(left, right);
+	left.before(rightClone);
+};
+
 // Сортировка массива.
 //const bubbleSort = arr => {
 //	let endI = arr.length - 1;
