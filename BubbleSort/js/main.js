@@ -30,7 +30,8 @@ range.oninput = function () {
 	} else if (count > 14) counter.style.color = 'rgb(94, 211, 148)';
 	else counter.style.color = 'rgba(50,50,50,.3)';
 }
-function compare(a,b) {
+
+function compare(a, b) {
 	return a - b;
 };
 // Сгенерировать массив случайных чисел заданной длиной в input
@@ -38,11 +39,11 @@ function generateArray() {
 	let generateArray = [];
 	let random = Math.floor(Math.random() * range.value);
 	for (let i = 0; i < range.value; i++) {
-		generateArray.push(Math.floor(Math.random() * range.value))
+		generateArray.push(Math.floor(Math.random() * range.value) + 1)
 	}
 	generateArray.sort(compareRandom)
 	unsorted = generateArray;
-	
+
 	return unsorted;
 };
 
@@ -53,10 +54,12 @@ function compareRandom(a, b) {
 
 // Создание элемента на основе длинны массива
 const createGraph = () => {
-	let graph = createElement('ul', {id:'graph'})
-	
+	let graph = createElement('ul', {
+		id: 'graph'
+	})
+
 	if (!unsorted.length) return alert('Массив должен содержать элементы');
-	
+
 	unsorted.forEach((num, i) => {
 		let graphItem = createElement('li', {
 			'data-value': num
@@ -79,10 +82,20 @@ const renderGraph = () => {
 
 function swap(current, next) {
 	let count = 32;
+	let currentClone = current.cloneNode(true);
+	let nextClone = current.nextElementSibling.cloneNode(true);
 	current.classList.add('swapped');
-	current.style.transform = `translateX(${count}px)`;
-	next.style.transform = `translateX(-32px)`;
-	[current, next] = [next, current];
+	next.classList.add('swapped');
+
+	console.log(current, next);
+	current.parentElement.replaceChild(current, next);
+	current.before(nextClone);
+	console.log(current, next);
+	//	current.style.transform = `translateX(${count}px)`;
+	//	next.style.transform = `translateX(-32px)`;
+	//	[current, next] = [next, current];
+	//	current.classList.remove('swapped');
+	//	next.classList.remove('swapped');
 };
 
 
@@ -90,25 +103,25 @@ function graphSort() {
 	let graph = [...document.querySelector('#graph').children];
 	let swapped;
 	let endI = graph.length - 1;
-	
+
 	let bubbleSort = () => {
 		swapped = false;
-		for (let i = 0, j = 1;i < endI; i++, j++ ) {
+		for (let i = 0, j = 1; i < endI; i++, j++) {
 			let current = graph[i];
 			let next = graph[j];
 			let currVal = +current.dataset.value;
 			let nextVal = +next.dataset.value;
 
-			if (currVal > nextVal)  {
+			if (currVal > nextVal) {
 				swapped = true;
-				swap(current, next);
-			} 
+				setTimeout(() => swap(current, next), 0);
+			}
 			endI--;
 		}
 	};
-		do {
-			bubbleSort();
-		} while(swapped);
+	do {
+		bubbleSort();
+	} while (swapped);
 };
 // Сортировка массива.
 //const bubbleSort = arr => {
@@ -131,10 +144,10 @@ btns.addEventListener('click', (e) => {
 	e.preventDefault;
 	const btnSort = document.querySelector('#btn-sort');
 	const btnGenerate = document.querySelector('#btn-generate');
-	
+
 	let target = e.target;
 	if (target == btnSort) {
-//		bubbleSort(unsorted);
+		//		bubbleSort(unsorted);
 		graphSort();
 	}
 	if (target == btnGenerate) {
