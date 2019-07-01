@@ -1,33 +1,35 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=0">
-	<title>Buble Sort</title>
-	<link rel="stylesheet" href="css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<title>Визуализация сортировки пузырьком</title>
 </head>
 
 <body>
 	<div id="container">
 		<h1>Bubble Sort</h1>
 		<div class="size-bar">Выбери длинну массива
-			<input id="range" type="range" value="0" max="20">
-			<span id="counter">0</span>
+			<input id="range" type="range" value="0" max="20" @input="createNumbers">
+			<span id="counter">{{counter}}</span>
 		</div>
 		<div class="btn-group">
-			<button id="btn-generate" class="btn btn-generate">Generate Graph</button>
-			<button type="button" id="btn-sort" class="btn btn-sort">Sort this</button>
+			<button @click="shuffleArray" class="btn btn-generate">Generate Graph</button>
+			<button @click="startSort" type="button" class="btn btn-sort">Sort this</button>
 		</div>
-		<div id="box"></div>
-
+		<div id="box">
+			<ul>
+				<li :class="{active: item.status}" v-for="item of unsorted" :style="item.data">{{item.value}}</li>
+			</ul>
+		</div>
 	</div>
 
 
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+	<script src="js/script.js"></script>
+</body>
 
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
-	<script src="js/main.js"></script>
-</body></html>
+</html>

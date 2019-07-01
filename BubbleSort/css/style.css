@@ -7,6 +7,10 @@ body {
 	font-family: Roboto;
 }
 
+.active {
+	background: red;
+}
+
 #container {
 	max-width: 800px;
 	width: 100%;
