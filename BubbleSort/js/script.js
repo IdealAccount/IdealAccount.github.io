@@ -5,11 +5,9 @@ const app = new Vue({
 		counter: 10,
 		howFast: '',
 		sortingSpeed: 250,
-		hidden: true,
 		isShow: false,
 		time: 0,
 	},
-
 	mounted() {
 		this.createNumbers();
 		this.shuffleArray();
@@ -18,10 +16,10 @@ const app = new Vue({
 	computed: {
 		show_hidden() {
 			return {
-				active: this.isShow,
+				show: this.isShow,
 				hidden: !this.isShow
 			}
-		},
+		}
 	},
 	methods: {
 		close({
@@ -110,6 +108,7 @@ const app = new Vue({
 
 					// переводим в секунды разницу в миллисекундах с момента начала сортировки и завершением
 					app.time = Math.floor((finish - start) / 1000);
+					let closePopup = setTimeout(() => app.isShow = false, 5000);
 				} else {
 					timer = setTimeout(recursiveCompare, app.sortingSpeed);
 				}
