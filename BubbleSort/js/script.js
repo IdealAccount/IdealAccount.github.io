@@ -8,7 +8,8 @@ const app = new Vue({
 	data: {
 		unsorted: [],
 		counter: 0,
-		swapped: false,
+		swapped: undefined,
+		sortingSpeed: 500
 	},
 	methods: {
 		createNumbers() {
@@ -40,46 +41,44 @@ const app = new Vue({
 			}
 		},
 		startSort() {
-			let compareTwo = bubbleSort(this.unsorted);
+			let compare = bubbleSort(this.unsorted);
 
-			let timerID = setTimeout(function recursiveCompare() {
+			let timer = setTimeout(function recursiveCompare() {
 				// генератор проверяет следующую пару чисел и возвращает статус
-				let status = compareTwo.next()
+				let status = compare.next();
+
 				if (status.done) {
 					// останавливаем процесс, если итераций больше не осталось
-					clearInterval(timerID)
+					clearInterval(timer)
 					console.log('Сортировка закончена')
 				} else {
-					timerID = setTimeout(recursiveCompare, 210)
+					timer = setTimeout(recursiveCompare, app.sortingSpeed)
 				}
-			}, 210)
+			}, app.sortingSpeed)
 
 		},
 	}
 })
 
-function* bubbleSort(array) {
-	let swapped;
+function* bubbleSort(arr) {
 	// цикл проходов, количество проходов уменьшается с каждой итерацией
-	for (let iterations = array.length; iterations > 0; iterations--) {
-		swapped = false;
+	for (let iterations = arr.length; iterations > 0; iterations--) {
+		app.swapped = false;
 		for (let i = 0; i < iterations - 1; i++) {
+			arr.forEach((item) => {
+				if (item.status) Vue.set(item, 'status', false);
+			})
+			let current = arr[i];
+			let next = arr[i + 1];
 
-			let current = array[i];
-			let next = array[i + 1];
-
-			if (current.value == next.value || current.value < next.value) {
-				current.status = false;
-				//				next.status = false;
-			}
 			// если первое число больше второго, меняем их местами
 			if (current.value > next.value) {
-				swapped = true;
+				app.swapped = true;
 				current.status = true;
 				next.status = true;
 				// используем Vue.set, иначе замена не реактивная
-				Vue.set(array, i, next);
-				Vue.set(array, i + 1, current);
+				Vue.set(arr, i, next);
+				Vue.set(arr, i + 1, current);
 			}
 
 			yield current + " " + next;
