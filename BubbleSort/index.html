@@ -12,18 +12,28 @@
 <body>
 	<div id="container">
 		<h1>Bubble Sort</h1>
-		<div class="size-bar">Выбери длинну массива
-			<input id="range" type="range" value="0" max="20" @input="createNumbers">
+		<div class="row-size">Выбери длину массива
+			<input id="graph-size" type="range" name="grapg-size" :value="counter" max="20" @input="createNumbers">
 			<span id="counter">{{counter}}</span>
 		</div>
-		<div class="btn-group">
+		<div class="row-btn">
 			<button @click="shuffleArray" class="btn btn-generate">Generate Graph</button>
 			<button @click="startSort" type="button" class="btn btn-sort">Sort this</button>
 		</div>
-		<div id="box">
+		<div class="row-speed">
+			<span :title="sortingSpeed+'ms'">{{howFast}}</span>
+			<input list @input="setSpeed" id="speed-input" name="speed-input" class="sort-speed" type="range" min="100" max="800" step="10" :value="sortingSpeed">
+		</div>
+
+		<div id="box" @click="close">
 			<ul>
 				<li :class="{active: item.status}" v-for="item of unsorted" :style="item.data">{{item.value}}</li>
 			</ul>
+			<div class="popup" id="popup" :class="show_hidden">
+				<span></span>
+				Сортировка окончена!
+				Затрачено времени: {{ time }} секунд
+			</div>
 		</div>
 	</div>
 

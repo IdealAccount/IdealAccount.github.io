@@ -4,7 +4,7 @@
 }
 
 body {
-	font-family: Roboto;
+	font-family: 'Roboto';
 }
 
 .active {
@@ -19,17 +19,78 @@ body {
 	background: rgba(12, 9, 18, 0.3);
 }
 
-.swapped {
-	background: red;
-}
-
 #box {
+	position: relative;
+	z-index: 0;
 	display: flex;
 	padding: 30px;
 	background: rgba(54, 50, 108, 0.41);
 	min-height: 260px;
 	box-shadow: inset 2px -4px 15px 3px rgba(41, 123, 98, 0.88);
 }
+
+.popup {
+	z-index: 10;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 35px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 300px;
+	height: 100px;
+	border-radius: 6px;
+	box-shadow: 0 0 18px 3px rgba(0, 0, 0, .5);
+	background: #fff;
+	color: #333;
+}
+
+.popup span {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	right: 0;
+	top: 0;
+	padding: 15px;
+}
+
+.popup span:before,
+.popup span:after {
+	content: '';
+	position: absolute;
+	transform-origin: center;
+	display: block;
+	width: 22px;
+	height: 2px;
+	background: #333;
+}
+
+.popup span:before {
+	transform: rotate(45deg);
+}
+
+.popup span:after {
+	transform: rotate(-45deg);
+}
+
+.hidden {
+	visibility: hidden;
+	opacity: 0;
+}
+
+.show {
+	visibility: visible;
+	opacity: 1;
+}
+
+.popup.show {
+	visibility: visible;
+	opacity: 1;
+}
+
 
 ul {
 	width: 100%;
@@ -56,20 +117,16 @@ li {
 	/*	background: linear-gradient(to top, #333 20%,  73%);*/
 	color: #fff;
 	font-weight: bold;
-	box-shadow: 4px -4px 10px rgba(0, 0, 0, .3);
+	box-shadow: 4px -4px 13px 3px rgba(0, 0, 0, 0.47);
 }
 
-.reverse {
-	transform: translateY(100%);
-}
-
-.size-bar {
+.row-size {
 	display: flex;
 	align-items: center;
 	margin-bottom: 20px;
 }
 
-#range {
+#graph-size {
 	margin: 0 20px;
 }
 
@@ -87,7 +144,7 @@ li {
 	color: rgba(50, 50, 50, .3);
 }
 
-.btn-group {
+.row-btn {
 	margin-bottom: 20px;
 }
 
@@ -113,4 +170,25 @@ li {
 
 .btn-generate {
 	background: rgba(89, 15, 229, 0.77);
+}
+
+.sort-speed {
+	width: 50%;
+}
+
+.row-speed {
+	display: flex;
+	flex-direction: column;
+	/*	align-items: center;*/
+}
+
+.row-speed span {
+	align-self: center;
+	font-family: 'Helvetica';
+	font-weight: bold;
+	text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.51);
+}
+
+#speed-input {
+	direction: rtl;
 }
