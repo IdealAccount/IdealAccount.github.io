@@ -156,8 +156,8 @@ li {
 	padding: 10px;
 	min-width: 40px;
 	background: rgba(255, 255, 255, 0.71);
-	box-shadow: inset 0 0 12px rgba(0, 0, 0, .3),
-		0 0 5px rgba(0, 0, 0, .2);
+	box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.83),
+		0 0 15px rgba(0, 0, 0, 0.55);
 	border-radius: 50%;
 	font-weight: bold;
 	color: rgba(50, 50, 50, .3);
