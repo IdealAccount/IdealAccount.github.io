@@ -13,12 +13,13 @@
 	<div id="container">
 		<h1>Bubble Sort</h1>
 		<div class="row-size">Выбери длину массива
-			<input id="graph-size" type="range" name="grapg-size" :value="counter" max="20" @input="createNumbers">
+			<input id="graph-size" type="range" name="grapg-size" :value="counter" min="2" max="20" @input="createNumbers">
 			<span id="counter">{{counter}}</span>
 		</div>
 		<div class="row-btn">
-			<button @click="shuffleArray" class="btn btn-generate">Generate Graph</button>
-			<button @click="startSort" type="button" class="btn btn-sort">Sort this</button>
+			<button @click="generateArray" class="btn btn-generate">Generate Graph</button>
+			<button @click="startSort" :class="{red: isSorting}" type="button" class="btn btn-sort">{{ isSorting ? 'STOP' : 'Start sort'}}</button>
+			<button class="btn btn-reverse" type="button" @click="reverseSort">reverse</button>
 		</div>
 		<div class="row-speed">
 			<span :title="sortingSpeed+'ms'">{{howFast}}</span>
@@ -31,7 +32,7 @@
 			</ul>
 			<div class="popup" id="popup" :class="show_hidden">
 				<span></span>
-				Сортировка окончена!
+				Сортировка завершена!
 				Затрачено времени: {{ time }} секунд
 			</div>
 		</div>

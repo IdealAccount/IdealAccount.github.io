@@ -5,34 +5,32 @@ const app = new Vue({
 		counter: 10,
 		howFast: '',
 		sortingSpeed: 250,
+		isSorting: false,
+		red: this.isSorting,
 		isShow: false,
+		isReversed: false,
 		time: 0,
 	},
 	mounted() {
+		// задать колличество элементов и скорость по умолчанию
 		this.createNumbers();
-		this.shuffleArray();
 		this.setSpeed();
 	},
 	computed: {
 		show_hidden() {
 			return {
 				show: this.isShow,
-				hidden: !this.isShow
-			}
-		}
-	},
-	methods: {
-		close({
-			target
-		}) {
-			let popup = document.querySelector('#popup');
-
-			if (target == popup.firstElementChild || target !== popup) {
-				this.isShow = false;
+				hidden: !this.isShow,
 			}
 		},
+	},
+	methods: {
+
+
 		// Указываем длину элементов
 		createNumbers() {
+			if (this.isSorting) return false;
+
 			let graphSize = document.querySelector('#graph-size');
 			let countBox = document.querySelector('#counter');
 
@@ -45,10 +43,14 @@ const app = new Vue({
 				countBox.style.color = 'rgb(172, 0, 0)';
 			} else if (count > 14) countBox.style.color = 'rgb(94, 211, 148)';
 			else countBox.style.color = 'rgba(50,50,50,.3)';
+
+			// 
+			this.generateArray();
 		},
-		shuffleArray() {
+		// Сгенерировать массив
+		generateArray() {
 			let shuffledArr = [];
-			// функция для перемешивания чисел на Lodash, чтобы их потом сортировать
+			// перемешать массив
 			for (let i = 0; i < this.counter; i++) {
 				let random = Math.floor(Math.random() * this.counter) + 1;
 
@@ -60,6 +62,11 @@ const app = new Vue({
 
 				this.unsorted = shuffledArr;
 			}
+		},
+		// Развернуть порядок сортировки
+		reverseSort() {
+			if (this.isSorting) return;
+			this.isReversed = !this.isReversed;
 		},
 		// Устанавить скорость выполнения сортировки
 		setSpeed() {
@@ -86,20 +93,23 @@ const app = new Vue({
 				this.howFast = 'Slowly';
 			}
 		},
+		// Начать сортировку
 		startSort() {
+			this.isSorting = !this.isSorting;
 			let start, finish;
 			start = Date.now();
 			// для удобного управления функцией поместим ее в переменную
 			let compare = bubbleSort(this.unsorted);
 
 			let timer = setTimeout(function recursiveCompare() {
-
 				// генератор проверяет следующую пару чисел и возвращает статус
 				let status = compare.next();
 
-				if (status.done) {
+				if (status.done || app.isSorting == false) {
 					// показываем высплывающее окно
 					app.isShow = true;
+					// закрыть всплывающее окно через 4 секунды
+					setTimeout(() => app.isShow = false, 3000);
 					// остановить процесс, если итераций больше не осталось
 					clearTimeout(timer);
 
@@ -108,11 +118,26 @@ const app = new Vue({
 
 					// переводим в секунды разницу в миллисекундах с момента начала сортировки и завершением
 					app.time = Math.floor((finish - start) / 1000);
-					let closePopup = setTimeout(() => app.isShow = false, 5000);
+
+					app.isSorting = false;
 				} else {
 					timer = setTimeout(recursiveCompare, app.sortingSpeed);
 				}
 			}, app.sortingSpeed);
+		},
+		// Остановка сортировки
+		stopSort() {
+			this.isSorting = !this.isSorting;
+		},
+		// Скрыть всплывающее окно
+		close(event) {
+			let popup = document.querySelector('#popup');
+			let {
+				target
+			} = event;
+			if (target == popup.firstElementChild || target !== popup) {
+				this.isShow = false;
+			}
 		},
 	}
 })
@@ -129,12 +154,22 @@ function* bubbleSort(arr) {
 			let next = arr[i + 1];
 
 			// если current.value > next.value, меняем их местами
-			if (current.value > next.value) {
-				current.status = true;
-				next.status = true;
-				// используем Vue.set, для реактивной замены
-				Vue.set(arr, i, next);
-				Vue.set(arr, i + 1, current);
+			if (app.isReversed) {
+				if (current.value < next.value) {
+					current.status = true;
+					next.status = true;
+					// используем Vue.set, для реактивной замены
+					Vue.set(arr, i, next);
+					Vue.set(arr, i + 1, current);
+				}
+			} else {
+				if (current.value > next.value) {
+					current.status = true;
+					next.status = true;
+					// используем Vue.set, для реактивной замены
+					Vue.set(arr, i, next);
+					Vue.set(arr, i + 1, current);
+				}
 			}
 			yield `${current} ${next}`;
 		}

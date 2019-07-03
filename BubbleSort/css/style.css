@@ -5,6 +5,7 @@
 
 body {
 	font-family: 'Roboto';
+	color: #fff;
 }
 
 .active {
@@ -16,7 +17,7 @@ body {
 	width: 100%;
 	margin: 0 auto;
 	padding: 10px;
-	background: rgba(12, 9, 18, 0.3);
+	background: rgba(19, 35, 42, 0.8);
 }
 
 #box {
@@ -24,7 +25,7 @@ body {
 	z-index: 0;
 	display: flex;
 	padding: 30px;
-	background: rgba(54, 50, 108, 0.41);
+	background: rgba(63, 108, 114, 0.74);
 	min-height: 260px;
 	box-shadow: inset 2px -4px 15px 3px rgba(41, 123, 98, 0.88);
 }
@@ -48,6 +49,7 @@ body {
 }
 
 .popup span {
+	cursor: pointer;
 	position: absolute;
 	display: flex;
 	align-items: center;
@@ -165,11 +167,25 @@ li {
 }
 
 .btn-sort {
-	background: rgb(75, 0, 177);
+	background: rgba(39, 113, 47, 0.63);
+}
+
+.btn-sort.red {
+	background: red;
 }
 
 .btn-generate {
 	background: rgba(89, 15, 229, 0.77);
+}
+
+.btn-stop {
+	background: red;
+	color: #333;
+	font-weight: bold;
+}
+
+.btn-reverse {
+	background: rgba(113, 70, 39, 0.85);
 }
 
 .sort-speed {
