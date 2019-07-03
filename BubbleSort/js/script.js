@@ -25,8 +25,6 @@ const app = new Vue({
 		},
 	},
 	methods: {
-
-
 		// Указываем длину элементов
 		createNumbers() {
 			if (this.isSorting) return false;
