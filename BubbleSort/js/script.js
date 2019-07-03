@@ -10,6 +10,7 @@ const app = new Vue({
 		isShow: false,
 		isReversed: false,
 		time: 0,
+		isChanged: false
 	},
 	mounted() {
 		// задать колличество элементов и скорость по умолчанию
@@ -22,9 +23,15 @@ const app = new Vue({
 				show: this.isShow,
 				hidden: !this.isShow,
 			}
-		},
+		}
 	},
 	methods: {
+		changeType() {
+			if (!this.isSorting) {
+				this.isChanged = !this.isChanged;
+				this.generateArray();
+			}
+		},
 		// Указываем длину элементов
 		createNumbers() {
 			if (this.isSorting) return false;
@@ -45,19 +52,24 @@ const app = new Vue({
 			// 
 			this.generateArray();
 		},
-		// Сгенерировать массив
+		//Сгенерировать массив
 		generateArray() {
 			let shuffledArr = [];
 			// перемешать массив
 			for (let i = 0; i < this.counter; i++) {
 				let random = Math.floor(Math.random() * this.counter) + 1;
 
-				shuffledArr.push({
+				if (this.isChanged) {
+					shuffledArr.push({
+						data: `width: ${random * 30}px`,
+						value: random,
+						status: false
+					});
+				} else shuffledArr.push({
 					data: `height: ${random * 10}px`,
 					value: random,
 					status: false
-				});
-
+				})
 				this.unsorted = shuffledArr;
 			}
 		},

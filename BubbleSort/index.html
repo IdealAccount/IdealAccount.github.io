@@ -19,7 +19,8 @@
 		<div class="row-btn">
 			<button @click="generateArray" class="btn btn-generate">Generate Graph</button>
 			<button @click="startSort" :class="{red: isSorting}" type="button" class="btn btn-sort">{{ isSorting ? 'STOP' : 'Start sort'}}</button>
-			<button class="btn btn-reverse" type="button" @click="reverseSort">reverse</button>
+			<button class="btn btn-reverse" type="button" @click="reverseSort">{{isReversed ? '< Reverse' : 'Reverse >'}}</button>
+			<button class="btn btn-type" type="button" @click='changeType'>{{isChanged ? 'Columns' : 'Pyramidal'}}</button>
 		</div>
 		<div class="row-speed">
 			<span :title="sortingSpeed+'ms'">{{howFast}}</span>
@@ -27,7 +28,7 @@
 		</div>
 
 		<div id="box" @click="close">
-			<ul>
+			<ul :class="{changed: isChanged}">
 				<li :class="{active: item.status}" v-for="item of unsorted" :style="item.data">{{item.value}}</li>
 			</ul>
 			<div class="popup" id="popup" :class="show_hidden">
