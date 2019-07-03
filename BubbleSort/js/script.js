@@ -54,6 +54,7 @@ const app = new Vue({
 		},
 		//Сгенерировать массив
 		generateArray() {
+			if (this.isSorting) return;
 			let shuffledArr = [];
 			// перемешать массив
 			for (let i = 0; i < this.counter; i++) {
