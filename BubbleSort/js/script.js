@@ -46,7 +46,7 @@ const app = new Vue({
 				countBox.style.color = 'rgb(247, 63, 63)';
 			} else if (count > 6 && count <= 14) {
 				countBox.style.color = 'rgb(172, 0, 0)';
-			} else if (count > 14) countBox.style.color = 'rgb(94, 211, 148)';
+			} else if (count > 14) countBox.style.color = 'rgb(159, 6, 255)';
 			else countBox.style.color = 'rgba(50,50,50,.3)';
 
 			// 
