@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Meandr</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header>
+			<h2>Ты готов стать профессионалом?</h2>
+			<p class="notice">Мы ищем <a href="https://vk.com/id134060636" class="mark--orange">талантов</a> и <span class="mark--orange">саппортов</span> в команду. Решите на какую категорию вы претендуете.</p>
+			<a class="btn" href="#!">Заполнить анкету</a>
+		</header>
+		<div class="section-1">
+			<div class="container-md">
+				<div class="card" title="мы хотим">
+					<span class="card-title">Прокачиваем мир</span>
+					<p class="card-text">Вы хотите сделать мир лучше и не готовы ждать всю жизнь, чтобы начать это делать?</p>
+				</div>
+				<div class="card" title="у нас есть">
+					<span class="card-title">Мотивируем себя</span>
+					<p class="card-text">У вас есть собственная цель и вы не боитесь много работать, чтобы её достичь?</p>
+				</div>
+				<div class="card" title="мы способны">
+					<span class="card-title">Относимся с пониманием</span>
+					<p class="card-text">Вы способны применять разные подходы для достижения своих целей?</p>
+				</div>
+				<div class="card" title="мы сами несем ответственность">
+					<span class="card-title">Используем лучшее</span>
+					<p class="card-text">Вы не обвиняете других в своих неудачах и способны воспринимать критику?</p>
+				</div>
+			</div>
+		</div>
+		<section class="section-2">
+			<h2>Мы похожи!</h2>
+			<p>Не следует, однако забывать, что укрепление и развитие структуры представляет собой интересный эксперимент проверки позиций, занимаемых участниками в отношении поставленных задач. Разнообразный и богатый опыт рамки и место обучения кадров влечет за собой процесс внедрения и модернизации системы обучения кадров, соответствует насущным потребностям. Повседневная практика показывает, что укрепление и развитие структуры способствует подготовки и реализации форм развития.</p>
+			<p>Разнообразный и богатый опыт начало повседневной работы по формированию позиции способствует подготовки и реализации дальнейших направлений развития. Равным образом дальнейшее развитие различных форм деятельности позволяет оценить значение соответствующий условий активизации. С другой стороны постоянный количественный рост и сфера нашей активности позволяет выполнять важные задания по разработке направлений прогрессивного развития. Разнообразный и богатый опыт укрепление и развитие структуры позволяет оценить значение дальнейших направлений развития. Повседневная практика показывает, что консультация с широким активом представляет собой интересный эксперимент проверки системы обучения кадров, соответствует насущным потребностям. Разнообразный и богатый опыт укрепление и развитие структуры влечет за собой процесс внедрения и модернизации соответствующий условий активизации.</p>
+		</section>
+		<section class="section-3">
+			<h3>Приемущества работы с нами</h3>
+			<div class="container-lg">
+				<div class="item">
+					<div class="item-logo">
+						<img src="image/item-logo.svg" alt="">
+					</div>
+					<h4 class="item-title">Делимся оптом и навыками</h4>
+					<p class="item-text">Мы обучаем коллег всему, что знаем сами. Наш опыт уникален и проверен временем, а команда постоянно совершенствует свои знания и навыки.</p>
+				</div>
+				<div class="item">
+					<div class="item-logo">
+						<img src="image/item-logo.svg" alt="">
+					</div>
+					<h4 class="item-title">Стабильная зарплата</h4>
+					<p class="item-text">Вы без задержек получаете официальную зарплату. Также мы оплачиваем больничные и даем возможность брать оплачиваемый отпуск до 4 недель в год.</p>
+				</div>
+				<div class="item">
+					<div class="item-logo">
+						<img src="image/item-logo.svg" alt="">
+					</div>
+					<h4 class="item-title">Делимся опытом и навыками</h4>
+					<p class="item-text">Мы умеем работать с теми, кто еще не закончил получать образование. Вы можете работать неполный рабочий день, брать отгулы на время сессии и диплома.</p>
+				</div>
+			</div><!-- container-lg END -->
+		</section>
+		<footer>
+			<h3>Теперь расскажите о себе</h3>
+			<div class="container-sm">
+				<form class="" action="form.php" method="POST" onsubmit="return validate()">
+					<div class="form-group">
+						<div class="input-row">
+							<input id="userName" type="text">
+							<label class="input-label" for="userName">Фамилия и имя</label>
+						</div>
+						<div class="input-row">
+							<input id="userMail" type="email" required>
+							<label class="input-label" for="userMail">Электронная почта</label>
+						</div>
+						<div class="input-row">
+							<input id="userTel" type="tel">
+							<label class="input-label" for="userTel" required>Телефон</label>
+						</div>
+						<div class="input-row">
+							<textarea id="textarea" name="comments"></textarea>
+							<label class="input-label" for="textarea">Какой деятельностью, не связанной с текущими проектами, вы бы хотели заниматься в рабочее время?</label>
+
+						</div>
+						<!-- <input class="btn-send mark--orange" type="submit" value="Отправить"> -->
+						<button class="btn-send mark--orange" type="submit">Отправить</button>
+					</div>
+				</form>
+			</div>
+		</footer>
+	</div><!-- wrapper END -->
+	<script src="js/main.js"></script>
+</body></html>
