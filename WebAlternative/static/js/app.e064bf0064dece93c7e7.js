@@ -277,7 +277,7 @@ webpackJsonp([1], {
         }, slides: function () {
           for (var t = [], e = 0; e <= 11; e++) t.push({
             id: e,
-            bg: "background: url(../static/img/icons_sprite.png) no-repeat center",
+            bg: "background: url(./static/img/icons_sprite.png) no-repeat center",
             url: "#!"
           });
           return t
