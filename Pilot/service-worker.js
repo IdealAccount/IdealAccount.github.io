@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.f865bc85fdb9fd958ba2483bea9e1712.js"
+  "/precache-manifest.3f659f353a77cf926108544f09d6a427.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "autopilot"});
