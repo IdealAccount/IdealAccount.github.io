@@ -765,9 +765,9 @@
     e.exports = n.p + "./img/eight.49e8614b.jpg"
   }, e332: function (e, t, n) {
   }, e670: function (e, t, n) {
-    e.exports = n.p + "./img/tea.fa3f4927.png"
+    e.exports = n.p + "/img/tea.fa3f4927.png"
   }, f976: function (e, t, n) {
-    e.exports = n.p + "./img/first.6d826f97.jpg"
+    e.exports = n.p + "img/first.6d826f97.jpg"
   }
 });
 //# sourceMappingURL=app.a6373ec6.js.map
