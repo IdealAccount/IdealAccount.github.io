@@ -60,9 +60,9 @@
   0: function (e, t, n) {
     e.exports = n("56d7")
   }, "0adf": function (e, t, n) {
-    e.exports = n.p + "./img/coffee.c0619e30.png"
+    e.exports = n.p + ".img/coffee.c0619e30.png"
   }, "178f": function (e, t, n) {
-    e.exports = n.p + "./img/fifth.b268582c.jpg"
+    e.exports = n.p + "img/fifth.b268582c.jpg"
   }, "18f2": function (e, t, n) {
   }, "1b05": function (e, t, n) {
   }, "1ed9": function (e, t, n) {
