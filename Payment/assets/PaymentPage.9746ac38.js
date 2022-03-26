@@ -1,0 +1,1 @@
+import{_ as e}from"./index.d2ad512f.js";import{o as t,c as a}from"./vendor.830b21af.js";const n={name:"PaymentPage",components:{},props:{},setup(){return{}}};function o(r,s,c,p,m,_){return t(),a("div",null,"PaymentPage")}var i=e(n,[["render",o]]);export{i as default};
